@@ -12,7 +12,7 @@ import {
   Boxes,
   Building2,
 } from "lucide-react";
-import { Dock, DockItem, DockSeparator } from "@/components/motion/dock";
+import { MpDock } from "@/components/mp-dock";
 import { links } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -41,46 +41,13 @@ export function LinkDock() {
           One hop away
         </h2>
         <p className="mt-3 max-w-md text-sm text-creme/65">
-          beUI dock into GitHub, Client Reach AI, live products, and a hello.
+          Motion Primitives magnifying dock into GitHub, Client Reach AI, and a
+          hello.
         </p>
       </div>
 
-      <div className="flex justify-center border border-border bg-card/40 px-4 py-8">
-        <Dock size={52} className="rounded-none border-border bg-black/80">
-          {links.slice(0, 4).map((item) => {
-            const Icon = icons[item.id] ?? Globe;
-            return (
-              <DockItem key={item.id} aria-label={item.label}>
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
-                  className="flex size-full items-center justify-center text-creme transition hover:text-scarlet"
-                  aria-label={item.label}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              </DockItem>
-            );
-          })}
-          <DockSeparator />
-          {links.slice(4, 8).map((item) => {
-            const Icon = icons[item.id] ?? Globe;
-            return (
-              <DockItem key={item.id} aria-label={item.label}>
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
-                  className="flex size-full items-center justify-center text-creme transition hover:text-scarlet"
-                  aria-label={item.label}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              </DockItem>
-            );
-          })}
-        </Dock>
+      <div className="border border-border bg-card/40 px-4 py-8">
+        <MpDock />
       </div>
 
       <ul className="divide-y divide-border border border-border">

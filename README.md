@@ -16,11 +16,13 @@ Palette: Scarlet `#F5332C` · Black `#000000` · Creme `#CCCBB9`.
 - Tailwind CSS v4
 - Motion
 - Fonts: Unbounded (display), Sora (body), Space Mono (labels)
-- shadcn-style primitives + [Rare UI](https://www.rareui.com/components) (`@rare-ui/*`) + [beUI](https://beui.dev) (`@beui/*`)
+- shadcn-style primitives + [Rare UI](https://www.rareui.com/components) + [beUI](https://beui.dev) + [Motion Primitives](https://motion-primitives.com)
 
-**Rare UI:** Fluid Orb, Gooey Nav, Scroll Progress, Folder, GitHub Activity, Animated Counter, Gravity Letters, Step Player, FAQ, Code Block, Toast, Emoji Reaction, AI Status.
+**Rare UI:** Fluid Orb, Gooey Nav, Scroll Progress, Folder, GitHub Activity, Gravity Letters, Step Player, FAQ, Code Block, Toast, Emoji Reaction, AI Status.
 
-**beUI:** Tilt Card, Marquee, Timeline, Dock, Text Scramble, Magnetic Button, Expanding Arrow Button, Avatar Group, Tabs / Expandable Tabs, Preview Rail, Bounce Sidebar.
+**beUI:** Tilt Card, Marquee, Timeline, Magnetic / Expanding Arrow buttons, Avatar Group, Tabs helpers.
+
+**Motion Primitives:** Text Effect / Loop / Morph / Roll / Shimmer, Spinning Text, Dock, Magnetic, Sliding Number, In View, Animated Background, Morphing Dialog, Border Trail, Glow, Spotlight, Infinite Slider, Progressive Blur.
 
 ## Run locally
 
