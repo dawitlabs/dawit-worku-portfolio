@@ -16,7 +16,9 @@ Palette: Scarlet `#F5332C` · Black `#000000` · Creme `#CCCBB9`.
 - Tailwind CSS v4
 - Motion
 - Fonts: Unbounded (display), Sora (body), Space Mono (labels)
-- shadcn-style primitives (`Button`)
+- shadcn-style primitives + [Rare UI](https://www.rareui.com/components) components installed via CLI (`@rare-ui/*`)
+
+Rare UI pieces in use: Fluid Orb, Gooey Nav, Scroll Progress, Folder, GitHub Activity, Animated Counter, Gravity Letters, Step Player, FAQ, Code Block, Toast, Emoji Reaction, AI Status.
 
 ## Run locally
 

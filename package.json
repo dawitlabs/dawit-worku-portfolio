@@ -13,11 +13,18 @@
     "@radix-ui/react-tabs": "^1.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cn": "^0.5.2",
+    "figma-squircle": "^1.1.0",
+    "flubber": "^0.4.2",
     "lucide-react": "^1.70.0",
     "motion": "^14.11.1",
     "next": "16.4.5",
+    "prism-react-renderer": "^2.4.1",
     "react": "19.3.0",
+    "react-apple-emojis": "^3.0.0",
     "react-dom": "19.3.0",
+    "react-use-measure": "^2.1.7",
+    "sonner": "^2.0.8",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {

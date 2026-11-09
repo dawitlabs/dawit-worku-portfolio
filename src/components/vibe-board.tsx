@@ -1,7 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "motion/react";
+import { EmojiReaction } from "@/components/ui/emoji-reaction";
 import { profile, skills, vibeNotes } from "@/lib/data";
+
+const GravityLetters = dynamic(
+  () => import("@/components/ui/gravity-letters"),
+  { ssr: false },
+);
 
 export function VibeBoard() {
   return (
@@ -17,8 +24,8 @@ export function VibeBoard() {
           Paper, morph, polish
         </h2>
         <p className="mt-3 max-w-lg text-sm text-creme/65">
-          Sketch energy with a prestige finish — sticky notes for the process,
-          liquid motion for the mood, stack for the craft.
+          Sketch energy with a prestige finish — sticky notes, gravity glyphs,
+          and a tapback for the mood.
         </p>
       </div>
 
@@ -56,6 +63,27 @@ export function VibeBoard() {
             </p>
           </motion.article>
         ))}
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[1.4fr_0.6fr]">
+        <div className="relative h-64 overflow-hidden border border-creme/15 bg-black/60 sm:h-80">
+          <p className="absolute left-4 top-4 z-10 font-mono text-[10px] uppercase tracking-[0.2em] text-creme/50">
+            Gravity field · click / hold to pour
+          </p>
+          <GravityLetters
+            type="both"
+            color="#F5332C"
+            size={28}
+            className="h-full w-full"
+            items={["D", "A", "W", "I", "T", "✦", "01"]}
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center gap-4 border border-creme/15 bg-creme/[0.04] p-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-creme/50">
+            React to the vibe
+          </p>
+          <EmojiReaction size="lg" />
+        </div>
       </div>
 
       <div className="border border-creme/15 bg-black/50 p-6 sm:p-8">
