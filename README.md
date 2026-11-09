@@ -15,6 +15,7 @@ Palette: Scarlet `#F5332C` · Black `#000000` · Creme `#CCCBB9`.
 - Next.js (App Router) + TypeScript
 - Tailwind CSS v4
 - Motion
+- Fonts: Unbounded (display), Sora (body), Space Mono (labels)
 - shadcn-style primitives (`Button`)
 
 ## Run locally
