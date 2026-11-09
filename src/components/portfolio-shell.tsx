@@ -16,11 +16,14 @@ import { BeuiTimeline } from "@/components/beui-timeline";
 import { BeuiMarquee } from "@/components/beui-marquee";
 import { BeuiCrew } from "@/components/beui-crew";
 import { MpShowcase } from "@/components/mp-showcase";
+import { RareKit } from "@/components/rare-kit";
+import { RareNav } from "@/components/rare-nav";
 import { Button } from "@/components/ui/button";
 import { GooeyNav } from "@/components/ui/gooey-nav";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { AiStatus } from "@/components/ui/ai-status";
 import { toast, Toaster } from "@/components/ui/toast";
+import { NotificationBell } from "@/components/ui/notification-bell";
 import { MagneticButton } from "@/components/motion/button/magnetic";
 import { ExpandingArrowButton } from "@/components/motion/expanding-arrow-button";
 import { ButtonLink } from "@/components/motion/button/base";
@@ -45,6 +48,7 @@ const SECTIONS = [
   { id: "stats", label: "Stats" },
   { id: "modes", label: "Modes" },
   { id: "primitives", label: "Effects" },
+  { id: "rare-kit", label: "Rare kit" },
   { id: "timeline", label: "Path" },
   { id: "studio", label: "Studio" },
   { id: "activity", label: "GitHub" },
@@ -80,6 +84,7 @@ export function PortfolioShell() {
         sections={SECTIONS}
         className="fixed right-4 top-1/2 z-40 -translate-y-1/2 sm:right-6"
       />
+      <RareNav />
       <Toaster position="bottom-center" />
 
       <header className="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
@@ -92,6 +97,17 @@ export function PortfolioShell() {
           </span>
         </a>
         <nav className="flex items-center gap-2">
+          <NotificationBell
+            count={3}
+            size={40}
+            color="red"
+            className="rounded-none border border-border bg-black text-creme"
+            onClick={() => {
+              document.getElementById("rare-kit")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          />
           <ButtonLink
             href={profile.github}
             target="_blank"
@@ -263,6 +279,7 @@ export function PortfolioShell() {
           </section>
 
           <MpShowcase />
+          <RareKit />
           <BeuiTimeline />
           <StudioSection />
           <ActivitySection />

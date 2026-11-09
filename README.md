@@ -18,7 +18,7 @@ Palette: Scarlet `#F5332C` · Black `#000000` · Creme `#CCCBB9`.
 - Fonts: Unbounded (display), Sora (body), Space Mono (labels)
 - shadcn-style primitives + [Rare UI](https://www.rareui.com/components) + [beUI](https://beui.dev) + [Motion Primitives](https://motion-primitives.com)
 
-**Rare UI:** Fluid Orb, Gooey Nav, Scroll Progress, Folder, GitHub Activity, Gravity Letters, Step Player, FAQ, Code Block, Toast, Emoji Reaction, AI Status.
+**Rare UI:** Fluid Orb, Matrix Orb, Gooey Nav, Scroll Progress, Bounce / Hook / Proximity sidebars, Rail TOC, Notification Bell, Folder, GitHub Activity, Gravity Letters, Step Player, FAQ, Code Block, Toast, Emoji Reaction, AI Status, Task List, Voice Note, Grid Reveal, Web Search, Theme Selector, Duration Picker.
 
 **beUI:** Tilt Card, Marquee, Timeline, Magnetic / Expanding Arrow buttons, Avatar Group, Tabs helpers.
 
