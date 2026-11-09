@@ -13,12 +13,18 @@ import { StatsStrip } from "@/components/stats-strip";
 import { StudioSection } from "@/components/studio-section";
 import { ActivitySection } from "@/components/activity-section";
 import { FaqSection } from "@/components/faq-section";
-import { Magnetic } from "@/components/magnetic";
+import { BeuiTimeline } from "@/components/beui-timeline";
+import { BeuiMarquee } from "@/components/beui-marquee";
+import { BeuiCrew } from "@/components/beui-crew";
 import { Button } from "@/components/ui/button";
 import { GooeyNav } from "@/components/ui/gooey-nav";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { AiStatus } from "@/components/ui/ai-status";
 import { toast, Toaster } from "@/components/ui/toast";
+import { MagneticButton } from "@/components/motion/button/magnetic";
+import { ExpandingArrowButton } from "@/components/motion/expanding-arrow-button";
+import { TextScramble } from "@/components/motion/text-scramble";
+import { ButtonLink } from "@/components/motion/button/base";
 import { profile } from "@/lib/data";
 
 const FluidOrb = dynamic(() => import("@/components/ui/fluid-orb"), {
@@ -32,6 +38,7 @@ const SECTIONS = [
   { id: "top", label: "Intro" },
   { id: "stats", label: "Stats" },
   { id: "modes", label: "Modes" },
+  { id: "timeline", label: "Path" },
   { id: "studio", label: "Studio" },
   { id: "activity", label: "GitHub" },
   { id: "faq", label: "FAQ" },
@@ -72,32 +79,42 @@ export function PortfolioShell() {
           </span>
         </a>
         <nav className="flex items-center gap-2">
-          <Magnetic>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="border-creme/25 text-creme"
-            >
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                <FolderGit2 className="h-3.5 w-3.5" />
-                GitHub
-              </a>
-            </Button>
-          </Magnetic>
-          <Magnetic>
-            <Button size="sm" onClick={hire}>
-              Hire me
-            </Button>
-          </Magnetic>
+          <ButtonLink
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            variant="outline"
+            size="sm"
+            className="rounded-none"
+          >
+            <FolderGit2 className="h-3.5 w-3.5" />
+            GitHub
+          </ButtonLink>
+          <MagneticButton size="sm" className="rounded-none" onClick={hire}>
+            Hire me
+          </MagneticButton>
         </nav>
       </header>
 
       <main id="top" className="relative z-10">
         <section className="mx-auto flex min-h-[78vh] w-full max-w-6xl flex-col justify-end px-5 pb-10 pt-10 sm:px-8 sm:pb-14 sm:pt-16">
-          <div className="mb-8 flex items-center gap-5">
-            <FluidOrb size={96} color="#F5332C" className="shrink-0 shadow-[0_0_60px_rgba(245,51,44,0.35)]" />
-            <AiStatus state="writing" label="Crafting Gem / Link / Vibe" detail="portfolio" />
+          <div className="mb-8 flex flex-wrap items-center gap-5">
+            <FluidOrb
+              size={96}
+              color="#F5332C"
+              className="shrink-0 shadow-[0_0_60px_rgba(245,51,44,0.35)]"
+            />
+            <div className="space-y-3">
+              <AiStatus
+                state="writing"
+                label="Crafting Gem / Link / Vibe"
+                detail="portfolio"
+              />
+              <TextScramble
+                text="MOTION · HEAVY · WEB"
+                className="font-mono text-[11px] tracking-[0.28em] text-scarlet"
+              />
+            </div>
           </div>
 
           <motion.p
@@ -130,21 +147,28 @@ export function PortfolioShell() {
             transition={{ delay: 0.7 }}
             className="mt-10 flex flex-wrap items-center gap-3"
           >
-            <Magnetic>
-              <Button asChild size="lg">
-                <a href="#modes">Enter Gem / Link / Vibe</a>
-              </Button>
-            </Magnetic>
-            <Magnetic>
-              <Button asChild variant="creme" size="lg">
-                <a href="#studio">See the studio</a>
-              </Button>
-            </Magnetic>
+            <ExpandingArrowButton
+              className="rounded-none bg-scarlet text-black"
+              accentClassName="bg-black text-creme"
+              onClick={() => {
+                document.getElementById("modes")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Enter Gem / Link / Vibe
+            </ExpandingArrowButton>
+            <Button asChild variant="creme" size="lg" className="rounded-none">
+              <a href="#timeline">Walk the path</a>
+            </Button>
           </motion.div>
         </section>
 
-        <div className="space-y-24 pb-28">
+        <BeuiMarquee />
+
+        <div className="space-y-24 pb-28 pt-16">
           <StatsStrip />
+          <BeuiCrew />
 
           <section id="modes" className="mx-auto w-full max-w-6xl px-5 sm:px-8">
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -184,20 +208,20 @@ export function PortfolioShell() {
             </div>
           </section>
 
+          <BeuiTimeline />
           <StudioSection />
           <ActivitySection />
           <FaqSection />
         </div>
       </main>
 
-      <footer className="relative z-10 border-t border-creme/10">
+      <footer className="relative z-10 border-t border-border">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-creme/50 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em]">
             © 2026 Dawit Worku
           </p>
           <p className="max-w-md text-creme/45">
-            Scarlet · Black · Creme — rare motion, owned components, no template
-            energy.
+            Scarlet · Black · Creme — Rare UI + beUI motion, owned source.
           </p>
         </div>
       </footer>

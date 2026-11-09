@@ -12,8 +12,8 @@ import {
   Boxes,
   Building2,
 } from "lucide-react";
+import { Dock, DockItem, DockSeparator } from "@/components/motion/dock";
 import { links } from "@/lib/data";
-import { Magnetic } from "@/components/magnetic";
 import { cn } from "@/lib/utils";
 
 const icons: Record<string, ComponentType<{ className?: string }>> = {
@@ -41,34 +41,49 @@ export function LinkDock() {
           One hop away
         </h2>
         <p className="mt-3 max-w-md text-sm text-creme/65">
-          Dock into GitHub, Client Reach AI, live products, and a hello.
+          beUI dock into GitHub, Client Reach AI, live products, and a hello.
         </p>
       </div>
 
-      <div className="flex flex-wrap items-end justify-center gap-3 rounded-none border border-creme/15 bg-creme/[0.04] px-4 py-6 backdrop-blur-md sm:gap-4 sm:px-8">
-        {links.slice(0, 6).map((item, i) => {
-          const Icon = icons[item.id] ?? Globe;
-          return (
-            <Magnetic key={item.id} strength={0.4}>
-              <motion.a
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
-                initial={{ y: 24, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.05 * i, type: "spring", stiffness: 280 }}
-                whileHover={{ y: -10, scale: 1.08 }}
-                className="group flex h-14 w-14 items-center justify-center border border-creme/20 bg-black text-creme shadow-[0_12px_40px_rgba(245,51,44,0.12)] transition-colors hover:border-scarlet hover:bg-scarlet hover:text-black sm:h-16 sm:w-16"
-                aria-label={item.label}
-              >
-                <Icon className="h-5 w-5" />
-              </motion.a>
-            </Magnetic>
-          );
-        })}
+      <div className="flex justify-center border border-border bg-card/40 px-4 py-8">
+        <Dock size={52} className="rounded-none border-border bg-black/80">
+          {links.slice(0, 4).map((item) => {
+            const Icon = icons[item.id] ?? Globe;
+            return (
+              <DockItem key={item.id} aria-label={item.label}>
+                <a
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className="flex size-full items-center justify-center text-creme transition hover:text-scarlet"
+                  aria-label={item.label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              </DockItem>
+            );
+          })}
+          <DockSeparator />
+          {links.slice(4, 8).map((item) => {
+            const Icon = icons[item.id] ?? Globe;
+            return (
+              <DockItem key={item.id} aria-label={item.label}>
+                <a
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className="flex size-full items-center justify-center text-creme transition hover:text-scarlet"
+                  aria-label={item.label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              </DockItem>
+            );
+          })}
+        </Dock>
       </div>
 
-      <ul className="divide-y divide-creme/10 border border-creme/15">
+      <ul className="divide-y divide-border border border-border">
         {links.map((item, i) => {
           const Icon = icons[item.id] ?? Globe;
           return (
